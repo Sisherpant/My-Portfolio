@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shishir Pant — Developer & Creator</title>
+  <meta name="description" content="BCSIT Student | Web Developer | Content Creator based in Kathmandu, Nepal."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <div class="loader-logo">SP</div>
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="loader-text">Crafting experience...</p>
+    </div>
+  </div>
+
+  <!-- CURSOR -->
+  <div id="cursor"></div>
+  <div id="cursor-follower"></div>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo" id="logo-scroll">SP</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Work</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#build">Hire Me</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button id="theme-toggle" aria-label="Toggle theme">
+          <i class="fas fa-sun" id="theme-icon"></i>
+        </button>
+        <button class="nav-cta" onclick="document.getElementById('build').scrollIntoView({behavior:'smooth'})">Let's Build</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="#about" class="mobile-link">About</a>
+      <a href="#skills" class="mobile-link">Skills</a>
+      <a href="#projects" class="mobile-link">Work</a>
+      <a href="#testimonials" class="mobile-link">Reviews</a>
+      <a href="#build" class="mobile-link">Hire Me</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
+      <div class="hero-grid"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge reveal-up">
+        <span class="badge-dot"></span>
+        Available for freelance work
+      </div>
+      <h1 class="hero-title reveal-up delay-1">
+        <span class="hero-name">Shishir</span><br/>
+        <span class="hero-name accent">Pant</span>
+      </h1>
+      <p class="hero-subtitle reveal-up delay-2">BCSIT Student &nbsp;·&nbsp; Web Developer &nbsp;·&nbsp; Content Creator</p>
+      <p class="hero-desc reveal-up delay-3">Building modern, minimal, and memorable digital experiences<br/>from Kathmandu, Nepal.</p>
+      <div class="hero-cta reveal-up delay-4">
+        <a href="#projects" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-socials reveal-up delay-5">
+        <a href="https://github.com/Sisherpant" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/shishir-pant-dev/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a href="https://www.instagram.com/sisherpant" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/sisher15" target="_blank" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.tiktok.com/@sisherpant" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section id="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card reveal-up">
+          <span class="stat-number" data-target="4">0</span><span class="stat-suffix">+</span>
+          <p>Projects Delivered</p>
+        </div>
+        <div class="stat-card reveal-up delay-1">
+          <span class="stat-number" data-target="2">0</span><span class="stat-suffix">+</span>
+          <p>Years Learning</p>
+        </div>
+        <div class="stat-card reveal-up delay-2">
+          <span class="stat-number" data-target="8">0</span><span class="stat-suffix">+</span>
+          <p>Technologies</p>
+        </div>
+        <div class="stat-card reveal-up delay-3">
+          <span class="stat-number" data-target="100">0</span><span class="stat-suffix">%</span>
+          <p>Client Satisfaction</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image-wrap reveal-left">
+          <div class="about-image-frame">
+            <img src="images/profile.jpg" alt="Shishir Pant" class="about-img" id="profile-img"/>
+            <div class="about-image-glow"></div>
+          </div>
+          <div class="about-tag tag-1"><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</div>
+          <div class="about-tag tag-2"><i class="fas fa-graduation-cap"></i> BCSIT Student</div>
+        </div>
+        <div class="about-text reveal-right">
+          <span class="section-eyebrow">About Me</span>
+          <h2 class="section-title">Turning Ideas Into<br/><em>Digital Reality</em></h2>
+          <p class="about-para">I'm <strong>Shishir Pant</strong> — a BCSIT student based in New Baneshwor, Kathmandu, Nepal with a genuine passion for crafting beautiful, functional web experiences. I sit at the intersection of design, code, and creativity.</p>
+          <p class="about-para">My journey started with curiosity about how websites come to life. Today, I specialise in modern frontend development — building responsive, visually compelling websites that don't just look great but feel intentional. Beyond code, I'm deeply involved in digital content creation, understanding how to tell stories that resonate in a fast-moving online world.</p>
+          <p class="about-para">Whether it's a sleek landing page, a full digital agency site, or a branded restaurant experience, I bring the same energy: clean code, thoughtful design, and an obsession with the details that matter most to users and clients alike.</p>
+          <div class="about-info-grid">
+            <div class="info-item"><span class="info-label">Email</span><a href="mailto:urspprt@gmail.com">urspprt@gmail.com</a></div>
+            <div class="info-item"><span class="info-label">Phone</span><a href="tel:+9779863481166">+977 9863481166</a></div>
+            <div class="info-item"><span class="info-label">Location</span><span>New Baneshwor, KTM</span></div>
+            <div class="info-item"><span class="info-label">Status</span><span class="status-active">Open to Work</span></div>
+          </div>
+          <a href="#contact" class="btn-primary mt-2">Say Hello</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Expertise</span>
+        <h2 class="section-title">Skills & Technologies</h2>
+        <p class="section-sub">A focused toolkit built for modern web development and creative content.</p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card reveal-up delay-1">
+          <div class="skill-icon"><i class="fab fa-html5"></i></div>
+          <h3>HTML5</h3>
+          <p>Semantic, accessible markup that forms the backbone of every great website.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="92"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-2">
+          <div class="skill-icon"><i class="fab fa-css3-alt"></i></div>
+          <h3>CSS3</h3>
+          <p>Modern layouts, animations, glassmorphism, and responsive design mastery.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="88"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-3">
+          <div class="skill-icon"><i class="fab fa-js"></i></div>
+          <h3>JavaScript</h3>
+          <p>Interactive features, DOM manipulation, and dynamic web experiences.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="75"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-4">
+          <div class="skill-icon"><i class="fas fa-code"></i></div>
+          <h3>C Programming</h3>
+          <p>Strong foundational logic and problem-solving from systems-level programming.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="70"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-1">
+          <div class="skill-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Frontend Dev</h3>
+          <p>End-to-end frontend workflows: prototyping, building, and deployment.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-2">
+          <div class="skill-icon"><i class="fas fa-palette"></i></div>
+          <h3>Web Design</h3>
+          <p>Design systems, UI/UX principles, and aesthetics-driven development.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="82"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-3">
+          <div class="skill-icon"><i class="fas fa-search"></i></div>
+          <h3>Basic SEO</h3>
+          <p>On-page optimisation, meta strategy, and performance-conscious coding.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="65"></div></div>
+        </div>
+        <div class="skill-card reveal-up delay-4">
+          <div class="skill-icon"><i class="fas fa-video"></i></div>
+          <h3>Content Creation</h3>
+          <p>Digital storytelling, social media content, and creative visual strategy.</p>
+          <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Portfolio</span>
+        <h2 class="section-title">Selected Work</h2>
+        <p class="section-sub">Real projects. Real impact. Each built with care, creativity, and clean code.</p>
+      </div>
+      <div class="projects-grid">
+
+        <div class="project-card reveal-up delay-1">
+          <div class="project-img-wrap">
+            <img src="images/project1.jpg" alt="United Solutions" loading="lazy"/>
+            <div class="project-overlay">
+              <a href="https://unitedsolution.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Digital Agency</span>
+            <h3>United Solutions</h3>
+            <p><!-- Add your project description here. Describe what this digital agency website offers, the design decisions, and technologies used. --></p>
+            <a href="https://unitedsolution.netlify.app/" target="_blank" class="project-ext-link">Visit Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-2">
+          <div class="project-img-wrap">
+            <img src="images/project2.jpg" alt="Luxe Clothing" loading="lazy"/>
+            <div class="project-overlay">
+              <a href="https://luxepremiumclothing.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">E-Commerce</span>
+            <h3>Luxe Premium Clothing</h3>
+            <p><!-- Add your project description here. Describe the clothing store's design, features, and responsive layout approach. --></p>
+            <a href="https://luxepremiumclothing.netlify.app/" target="_blank" class="project-ext-link">Visit Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-3">
+          <div class="project-img-wrap">
+            <img src="images/project3.jpg" alt="IronFit Gym" loading="lazy"/>
+            <div class="project-overlay">
+              <a href="https://ironfitgym-vault.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Fitness</span>
+            <h3>IronFit Gym Vault</h3>
+            <p><!-- Add your project description here. Describe the fitness website design, sections, and any interactive features. --></p>
+            <a href="https://ironfitgym-vault.netlify.app/" target="_blank" class="project-ext-link">Visit Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card reveal-up delay-4">
+          <div class="project-img-wrap">
+            <img src="images/project4.jpg" alt="Himalayan Flavors" loading="lazy"/>
+            <div class="project-overlay">
+              <a href="https://himalayan-flavors.netlify.app/" target="_blank" class="project-link-btn"><i class="fas fa-arrow-up-right-from-square"></i> Live Site</a>
+            </div>
+          </div>
+          <div class="project-info">
+            <span class="project-tag">Restaurant</span>
+            <h3>Himalayan Flavors</h3>
+            <p><!-- Add your project description here. Describe the restaurant website design, menu presentation, and cultural aesthetics. --></p>
+            <a href="https://himalayan-flavors.netlify.app/" target="_blank" class="project-ext-link">Visit Project <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Testimonials</span>
+        <h2 class="section-title">What People Say</h2>
+      </div>
+      <div class="testimonials-wrapper">
+        <div class="testimonials-track" id="testi-track">
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+            <p>"Shishir built our company website from scratch and the result was beyond our expectations. The design is clean, modern, and perfectly reflects our brand. He communicated clearly at every step and delivered on time."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">RK</div>
+              <div>
+                <strong>Rajesh Kumar</strong>
+                <span>CEO, Startup Founder</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+            <p>"Working with Shishir was an absolute pleasure. He understood our vision for the clothing brand immediately and translated it into a stunning, responsive website. His attention to detail and design sensibility are exceptional."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">PM</div>
+              <div>
+                <strong>Priya Mehta</strong>
+                <span>Fashion Entrepreneur</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+            <p>"I hired Shishir to redesign our gym's online presence and he completely transformed it. The new website is high-energy, visually impressive, and loads incredibly fast. Our sign-ups increased after launch."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">AS</div>
+              <div>
+                <strong>Alex Singh</strong>
+                <span>Gym Owner, Fitness Coach</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+            <p>"शिशिरले हाम्रो रेस्टुराँको वेबसाइट बनाइदिएको धेरै राम्रो भयो। डिजाइन एकदम प्रफेशनल छ र मोबाइलमा पनि राम्रोसँग चल्छ। हाम्रा ग्राहकहरूले वेबसाइटको धेरै तारिफ गर्छन्।"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">SP</div>
+              <div>
+                <strong>सुरेश पौडेल</strong>
+                <span>रेस्टुराँ मालिक, काठमाडौं</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+
+          <div class="testi-card">
+            <div class="testi-quote"><i class="fas fa-quote-left"></i></div>
+            <p>"शिशिर एकदम राम्रो वेब डेभलपर हुनुहुन्छ। उहाँले मेरो बिजनेसको लागि वेबसाइट बनाउँदा मेरो सबै आवश्यकता बुझेर काम गर्नुभयो। काम चाँडो र राम्रोसँग सक्नुभयो। भविष्यमा पनि उहाँसँगै काम गर्ने इच्छा छ।"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">अ</div>
+              <div>
+                <strong>अञ्जना श्रेष्ठ</strong>
+                <span>उद्यमी, ललितपुर</span>
+              </div>
+            </div>
+            <div class="testi-stars">★★★★★</div>
+          </div>
+
+        </div>
+        <div class="testi-controls">
+          <button class="testi-btn" id="testi-prev"><i class="fas fa-arrow-left"></i></button>
+          <div class="testi-dots" id="testi-dots"></div>
+          <button class="testi-btn" id="testi-next"><i class="fas fa-arrow-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BUILD / HIRE ME -->
+  <section id="build">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Let's Build Together</span>
+        <h2 class="section-title">Start Your Project</h2>
+        <p class="section-sub">Tell me about what you want to build and let's make it happen.</p>
+      </div>
+      <div class="build-form-wrap reveal-up delay-1">
+        <form id="build-form" action="https://formspree.io/f/xjgpeddy" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-name">Full Name *</label>
+              <input type="text" id="b-name" name="name" placeholder="Your full name" required/>
+              <span class="form-error">Please enter your name.</span>
+            </div>
+            <div class="form-group">
+              <label for="b-email">Email Address *</label>
+              <input type="email" id="b-email" name="email" placeholder="your@email.com" required/>
+              <span class="form-error">Please enter a valid email.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-phone">Phone Number</label>
+              <input type="tel" id="b-phone" name="phone" placeholder="+977 XXXXXXXXXX"/>
+            </div>
+            <div class="form-group">
+              <label for="b-who">Who Are You? *</label>
+              <select id="b-who" name="who" required>
+                <option value="" disabled selected>Select your role</option>
+                <option>Business Owner</option>
+                <option>Startup Founder</option>
+                <option>Freelancer / Creator</option>
+                <option>Student</option>
+                <option>Individual / Personal</option>
+                <option>Agency / Team</option>
+                <option>Other</option>
+              </select>
+              <span class="form-error">Please select an option.</span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="b-type">Project Type *</label>
+              <select id="b-type" name="project_type" required>
+                <option value="" disabled selected>Select project type</option>
+                <option>Website Development</option>
+                <option>Portfolio Website</option>
+                <option>E-Commerce Website</option>
+                <option>Landing Page</option>
+                <option>Web Design (UI/UX)</option>
+                <option>Blog / Content Site</option>
+                <option>Content Creation</option>
+                <option>SEO Optimisation</option>
+                <option>Website Redesign</option>
+                <option>Other</option>
+              </select>
+              <span class="form-error">Please select a project type.</span>
+            </div>
+            <div class="form-group">
+              <label for="b-budget">Budget Range *</label>
+              <select id="b-budget" name="budget" required>
+                <option value="" disabled selected>Select your budget</option>
+                <option>Under $100</option>
+                <option>$100 – $300</option>
+                <option>$300 – $700</option>
+                <option>$700 – $1500</option>
+                <option>$1500+</option>
+                <option>Let's Discuss</option>
+              </select>
+              <span class="form-error">Please select a budget range.</span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="b-what">What Do You Want to Build? *</label>
+            <select id="b-what" name="what_to_build" required>
+              <option value="" disabled selected>Select what you need</option>
+              <option>A brand new website</option>
+              <option>Redesign my existing website</option>
+              <option>A personal portfolio</option>
+              <option>An online store</option>
+              <option>A blog or news site</option>
+              <option>A restaurant or hospitality site</option>
+              <option>A fitness or sports site</option>
+              <option>A business landing page</option>
+              <option>Social media content</option>
+              <option>Something else</option>
+            </select>
+            <span class="form-error">Please make a selection.</span>
+          </div>
+          <div class="form-group">
+            <label for="b-features">Feature Requests / Additional Notes</label>
+            <textarea id="b-features" name="features" rows="4" placeholder="Describe any specific features, inspiration websites, or details about your project..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary btn-full">
+            <span>Submit Project Brief</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+          <div class="form-success" id="build-success">
+            <i class="fas fa-check-circle"></i> Your brief has been sent! I'll get back to you within 24 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Support</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+      </div>
+      <div class="faq-grid reveal-up delay-1">
+
+        <div class="faq-item">
+          <button class="faq-q">Do you build responsive websites?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>Absolutely. Every website I build is fully responsive and optimised for all screen sizes — mobile, tablet, and desktop. Responsive design is not an afterthought; it's built in from the very first line of code.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">What technologies do you use?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>I primarily work with HTML5, CSS3, and JavaScript for frontend development. I also use tools like GSAP and ScrollReveal for animations, Font Awesome for icons, and deploy projects on platforms like Netlify. For styling I leverage modern CSS including Flexbox, Grid, and custom properties.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Do you redesign existing websites?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>Yes! Website redesign is one of my favourite projects. Whether your site feels outdated, isn't mobile-friendly, or just doesn't reflect your brand anymore, I can help refresh the design and improve both aesthetics and performance.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Can I hire you for freelance work?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>Yes, I'm currently open to freelance projects. I work with clients both locally in Nepal and internationally. You can use the "Start Your Project" form on this page to tell me about your project, or reach out directly via email or WhatsApp.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">How long does it take to build a website?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>Timelines depend on complexity. A simple landing page or portfolio can be ready in 3–5 days. A multi-page business website typically takes 1–2 weeks. For larger or more complex projects, we discuss timelines upfront so there are no surprises.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Do you provide post-launch support?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>Yes. I offer a free revision period after delivery and can provide ongoing support and maintenance as needed. If something breaks or you need updates after launch, I'm just a message away.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">What do you need from me to get started?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>To kick things off, I need a brief overview of your project goals, any reference websites you like, your branding assets (logo, colours), and the content (text, images) you want on the site. The more detail you provide, the faster and more accurately I can bring your vision to life.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Do you do SEO for the websites you build?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>I implement on-page SEO best practices as standard — semantic HTML, proper meta tags, alt text for images, fast-loading code, and clean URL structures. For more advanced SEO campaigns, I can recommend additional strategies or tools.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">Can you create content for my social media?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>Yes! Alongside web development, I offer digital content creation services. This includes creative posts, graphics, and content strategies for platforms like Instagram, TikTok, and Facebook. Feel free to mention this in your project brief.</p></div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-q">What payment methods do you accept?<i class="fas fa-plus"></i></button>
+          <div class="faq-a"><p>I accept Esewa, Khalti, bank transfers (Nepal), and international payments via PayPal or direct bank. For larger projects, I typically request a 50% deposit upfront and the remaining 50% upon completion and your approval.</p></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section id="newsletter">
+    <div class="container">
+      <div class="newsletter-card reveal-up">
+        <div class="nl-text">
+          <span class="section-eyebrow">Stay Updated</span>
+          <h2>Get Tips, Updates & Freebies</h2>
+          <p>Join my mailing list for frontend tips, design inspo, and updates on new projects.</p>
+        </div>
+        <form class="nl-form" id="nl-form" onsubmit="handleNewsletter(event)">
+          <input type="email" placeholder="your@email.com" required/>
+          <button type="submit" class="btn-primary">Subscribe</button>
+        </form>
+        <p class="nl-note" id="nl-success" style="display:none;"><i class="fas fa-check"></i> You're subscribed!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header reveal-up">
+        <span class="section-eyebrow">Get in Touch</span>
+        <h2 class="section-title">Let's Start a Conversation</h2>
+        <p class="section-sub">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info reveal-left">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+            <div>
+              <span>Email</span>
+              <a href="mailto:urspprt@gmail.com">urspprt@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+            <div>
+              <span>Phone / WhatsApp</span>
+              <a href="tel:+9779863481166">+977 9863481166</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+            <div>
+              <span>Location</span>
+              <p>New Baneshwor, Kathmandu, Nepal</p>
+            </div>
+          </div>
+          <div class="contact-socials">
+            <a href="https://github.com/Sisherpant" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/shishir-pant-dev/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.instagram.com/sisherpant" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://x.com/sisher15" target="_blank"><i class="fab fa-x-twitter"></i></a>
+            <a href="https://www.facebook.com/profile.php?id=100080427086094" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.tiktok.com/@sisherpant" target="_blank"><i class="fab fa-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="contact-form-wrap reveal-right">
+          <form id="contact-form" action="https://formspree.io/f/mnjobyyj" method="POST" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="c-name">Full Name *</label>
+                <input type="text" id="c-name" name="name" placeholder="Your full name" required/>
+                <span class="form-error">Please enter your name.</span>
+              </div>
+              <div class="form-group">
+                <label for="c-phone">Phone Number</label>
+                <input type="tel" id="c-phone" name="phone" placeholder="+977 XXXXXXXXXX"/>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email Address *</label>
+              <input type="email" id="c-email" name="email" placeholder="your@email.com" required/>
+              <span class="form-error">Please enter a valid email.</span>
+            </div>
+            <div class="form-group">
+              <label for="c-msg">Message *</label>
+              <textarea id="c-msg" name="message" rows="5" placeholder="Tell me about your project, question, or just say hello..." required></textarea>
+              <span class="form-error">Please enter a message.</span>
+            </div>
+            <button type="submit" class="btn-primary btn-full">
+              <span>Send Message</span>
+              <i class="fas fa-paper-plane"></i>
+            </button>
+            <div class="form-success" id="contact-success">
+              <i class="fas fa-check-circle"></i> Message sent! I'll reply within 24 hours.
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">SP</div>
+          <p>Shishir Pant — BCSIT Student, Web Developer &amp; Content Creator based in Kathmandu, Nepal.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Navigation</h4>
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Work</a>
+          <a href="#testimonials">Reviews</a>
+          <a href="#build">Hire Me</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <a href="https://github.com/Sisherpant" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/shishir-pant-dev/" target="_blank">LinkedIn</a>
+          <a href="https://www.instagram.com/sisherpant" target="_blank">Instagram</a>
+          <a href="https://x.com/sisher15" target="_blank">X / Twitter</a>
+          <a href="https://www.tiktok.com/@sisherpant" target="_blank">TikTok</a>
+          <a href="https://www.facebook.com/profile.php?id=100080427086094" target="_blank">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Shishir Pant. All rights reserved.</p>
+        <p>Designed &amp; Built by Shishir Pant</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP -->
+  <a href="https://wa.me/9779863481166" target="_blank" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+    <span class="wa-tooltip">Chat on WhatsApp</span>
+  </a>
+
+  <!-- BACK TO TOP -->
+  <button id="back-to-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
+  <script src="script.js"></script>
+</body>
+</html>
