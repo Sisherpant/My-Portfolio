@@ -1617,236 +1617,125 @@ section {
 /* ========================
    REVIEWS SECTION
 ======================== */
-#reviews {
-  padding: 100px 0;
-  background: var(--bg-2);
-}
+/* ========================
+   TESTIMONIALS GRID
+======================== */
+#testimonials { background: var(--bg-2); }
 
-.reviews-grid {
+.testimonials-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-  margin-bottom: 60px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.review-card {
+.testi-card {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
-  padding: 28px;
+  padding: 2rem;
+  position: relative;
+  transition: var(--transition);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-  position: relative;
-  overflow: hidden;
+  gap: 1rem;
 }
 
-.review-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--gradient);
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.review-card:hover {
+.testi-card:hover {
+  border-color: var(--border-hover);
+  background: var(--surface-hover);
   transform: translateY(-4px);
   box-shadow: var(--shadow-accent);
-  border-color: var(--border-hover);
 }
 
-.review-card:hover::before { opacity: 1; }
+.testi-card.testi-hidden {
+  display: none;
+}
 
-.review-header {
+.testi-card.testi-visible {
+  display: flex;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+.testi-quote {
+  font-size: 1.4rem;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.testi-card p {
+  color: var(--text-muted);
+  font-size: 0.93rem;
+  line-height: 1.75;
+  font-style: italic;
+  flex: 1;
+}
+
+.testi-author {
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-top: auto;
 }
 
-.review-avatar {
-  width: 46px;
-  height: 46px;
+.testi-avatar {
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--gradient);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 0.8rem;
   font-weight: 700;
-  font-size: 0.85rem;
-  color: #fff;
+  color: white;
   flex-shrink: 0;
-  letter-spacing: 0.5px;
 }
 
-.review-meta { flex: 1; }
-
-.review-meta strong {
+.testi-author strong {
   display: block;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 600;
   color: var(--text);
 }
 
-.review-meta span {
-  font-size: 0.8rem;
+.testi-author span {
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
 
-.review-stars-display {
-  margin-left: auto;
-  display: flex;
-  gap: 2px;
-  font-size: 0.9rem;
-  flex-shrink: 0;
-}
-
-.star-filled { color: #f59e0b; }
-.star-half   { color: #f59e0b; }
-.star-empty  { color: var(--text-dim); }
-
-.review-text {
-  font-size: 0.9rem;
-  line-height: 1.75;
-  color: var(--text-muted);
-  font-style: italic;
-  flex: 1;
-}
-
-.review-project-link {
-  font-size: 0.82rem;
-  color: var(--accent);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 500;
-  transition: var(--transition);
-  width: fit-content;
-}
-
-.review-project-link:hover {
-  opacity: 0.75;
-  text-decoration: underline;
-}
-
-/* ---- Review Form ---- */
-.review-form-wrap {
-  max-width: 700px;
-  margin: 0 auto;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-}
-
-.review-form-header { margin-bottom: 2rem; }
-
-.review-form-header h3 {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-  color: var(--text);
-}
-
-.review-form-header p {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-.review-form-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
-}
-
-.rform-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 1.25rem;
-}
-
-.rform-group label {
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--text-muted);
-  letter-spacing: 0.03em;
-}
-
-.rform-group label span {
-  color: var(--text-dim);
-  font-weight: 400;
-}
-
-.rform-group input,
-.rform-group textarea {
-  background: var(--bg-2);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  padding: 0.85rem 1rem;
-  color: var(--text);
-  font-family: var(--font-body);
-  font-size: 0.95rem;
-  outline: none;
-  transition: var(--transition);
-  resize: vertical;
-  width: 100%;
-}
-
-.rform-group input::placeholder,
-.rform-group textarea::placeholder { color: var(--text-dim); }
-
-.rform-group input:focus,
-.rform-group textarea:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-glow);
-}
-
-/* ---- Star Input (Interactive) ---- */
-.star-rating-input {
-  display: flex;
-  gap: 2px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.star-seg {
-  display: inline-flex;
-  align-items: center;
-  font-size: 1.4rem;
-  transition: transform 0.15s ease;
-  color: var(--text-dim);
-}
-
-.star-seg.half-star-left  { width: 14px; overflow: hidden; }
-.star-seg.half-star-right { width: 12px; overflow: hidden; transform-origin: left; }
-
-.star-seg.hover-active {
+.testi-stars {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
   color: #f59e0b;
-  transform: scale(1.2);
-}
-
-.star-label {
   font-size: 0.8rem;
-  color: var(--text-muted);
-  margin-top: 4px;
-  display: block;
+  letter-spacing: 2px;
 }
 
-.review-success {
-  color: var(--accent-3);
-  font-size: 0.9rem;
-  margin-top: 1rem;
-  font-weight: 500;
+.testi-viewmore-wrap {
+  text-align: center;
 }
 
-@media (max-width: 768px) {
-  .reviews-grid { grid-template-columns: 1fr; }
-  .review-form-wrap { padding: 1.75rem; }
-  .review-form-row { grid-template-columns: 1fr; }
+#testi-viewmore-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition);
+}
+
+#testi-viewmore-btn i {
+  transition: transform 0.3s ease;
+}
+
+#testi-viewmore-btn.expanded i {
+  transform: rotate(180deg);
+}
+
+@media (max-width: 1024px) {
+  .testimonials-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
 }
