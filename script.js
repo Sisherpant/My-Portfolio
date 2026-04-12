@@ -468,26 +468,35 @@ document.querySelectorAll('img').forEach(img => {
 console.log('%cShishir Pant Portfolio', 'font-size:20px;font-weight:bold;color:#4f9eff;');
 console.log('%cBuilt with ♥ — urspprt@gmail.com', 'color:#8892a4;');
 
-// ========================
-// REVIEWS SECTION
-// ========================
+
 // ========================
 // TESTIMONIALS VIEW MORE
 // ========================
+// ========================
+// TESTIMONIALS VIEW MORE / LESS
+// ========================
 function toggleTestimonials() {
-  const hiddenCards = document.querySelectorAll('.testi-card.testi-hidden');
   const btn = document.getElementById('testi-viewmore-btn');
-  const wrap = document.getElementById('testi-viewmore-wrap');
+  const isExpanded = btn.classList.contains('expanded');
 
-  if (hiddenCards.length > 0) {
-    // Show all hidden cards
-    hiddenCards.forEach(card => {
+  if (!isExpanded) {
+    // Show hidden cards
+    document.querySelectorAll('.testi-card.testi-hidden').forEach(card => {
       card.classList.remove('testi-hidden');
       card.classList.add('testi-visible');
-      // Re-observe for reveal animation
       revealObserver.observe(card);
     });
-    // No more hidden cards — hide the button
-    wrap.style.display = 'none';
+    btn.classList.add('expanded');
+    btn.querySelector('span').textContent = 'View Less';
+  } else {
+    // Hide them again
+    document.querySelectorAll('.testi-card.testi-visible').forEach(card => {
+      card.classList.remove('testi-visible');
+      card.classList.add('testi-hidden');
+    });
+    btn.classList.remove('expanded');
+    btn.querySelector('span').textContent = 'View More';
+    // Smooth scroll back up to section top
+    document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
