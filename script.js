@@ -217,74 +217,8 @@ if (statsSection) {
 // ========================
 // TESTIMONIALS SLIDER
 // ========================
-const track = document.getElementById('testi-track');
-const dotsContainer = document.getElementById('testi-dots');
-const prevBtn = document.getElementById('testi-prev');
-const nextBtn = document.getElementById('testi-next');
 
-if (track) {
-  const cards = track.querySelectorAll('.testi-card');
-  let current = 0;
-  let cardWidth = 0;
-  let visibleCount = window.innerWidth >= 769 ? 2 : 1;
 
-  function getVisibleCount() {
-    return window.innerWidth >= 769 ? 2 : 1;
-  }
-
-  function buildDots() {
-    dotsContainer.innerHTML = '';
-    const totalSlides = Math.ceil(cards.length / visibleCount);
-    for (let i = 0; i < totalSlides; i++) {
-      const dot = document.createElement('div');
-      dot.classList.add('testi-dot');
-      if (i === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => goTo(i));
-      dotsContainer.appendChild(dot);
-    }
-  }
-
-  function goTo(index) {
-    const totalSlides = Math.ceil(cards.length / visibleCount);
-    current = Math.max(0, Math.min(index, totalSlides - 1));
-    cardWidth = cards[0].offsetWidth + 24; // gap
-    track.style.transform = `translateX(-${current * visibleCount * cardWidth}px)`;
-    document.querySelectorAll('.testi-dot').forEach((dot, i) => {
-      dot.classList.toggle('active', i === current);
-    });
-  }
-
-  function goNext() { goTo(current + 1); }
-  function goPrev() { goTo(current - 1); }
-
-  prevBtn.addEventListener('click', goPrev);
-  nextBtn.addEventListener('click', goNext);
-
-  // Auto play
-  let autoPlay = setInterval(goNext, 5000);
-  track.addEventListener('mouseenter', () => clearInterval(autoPlay));
-  track.addEventListener('mouseleave', () => {
-    autoPlay = setInterval(goNext, 5000);
-  });
-
-  // Touch swipe
-  let touchStartX = 0;
-  track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  track.addEventListener('touchend', e => {
-    const diff = touchStartX - e.changedTouches[0].clientX;
-    if (Math.abs(diff) > 50) diff > 0 ? goNext() : goPrev();
-  });
-
-  function initSlider() {
-    visibleCount = getVisibleCount();
-    current = 0;
-    buildDots();
-    goTo(0);
-  }
-
-  window.addEventListener('resize', initSlider);
-  initSlider();
-}
 
 // ========================
 // FAQ ACCORDION
@@ -533,3 +467,122 @@ document.querySelectorAll('img').forEach(img => {
 
 console.log('%cShishir Pant Portfolio', 'font-size:20px;font-weight:bold;color:#4f9eff;');
 console.log('%cBuilt with ♥ — urspprt@gmail.com', 'color:#8892a4;');
+
+// ========================
+// REVIEWS SECTION
+// ========================
+(function initReviews() {
+
+  // Render star display for pre-loaded review cards
+  document.querySelectorAll('.review-stars-display').forEach(el => {
+    el.innerHTML = renderStarHTML(parseFloat(el.dataset.rating));
+  });
+
+  // Build interactive half-star input
+  const starInput = document.getElementById('star-input');
+  const starLabel = document.getElementById('star-label');
+  if (!starInput) return;
+
+  let selectedRating = 0;
+  const ratingLabels = ['','Terrible','Poor','Average','Good','Excellent'];
+
+  for (let i = 1; i <= 5; i++) {
+    const left = document.createElement('span');
+    left.className = 'star-seg half-star-left';
+    left.innerHTML = '★';
+    left.dataset.value = i - 0.5;
+
+    const right = document.createElement('span');
+    right.className = 'star-seg half-star-right';
+    right.innerHTML = '★';
+    right.dataset.value = i;
+
+    [left, right].forEach(seg => {
+      seg.addEventListener('mouseover', () => highlightStars(parseFloat(seg.dataset.value)));
+      seg.addEventListener('mouseleave', () => highlightStars(selectedRating));
+      seg.addEventListener('click', () => {
+        selectedRating = parseFloat(seg.dataset.value);
+        highlightStars(selectedRating);
+        starLabel.style.color = '';
+        starLabel.textContent = selectedRating + ' ★ — ' + (ratingLabels[Math.ceil(selectedRating)] || '');
+      });
+    });
+
+    starInput.appendChild(left);
+    starInput.appendChild(right);
+  }
+
+  function highlightStars(value) {
+    starInput.querySelectorAll('.star-seg').forEach(seg => {
+      seg.classList.toggle('hover-active', parseFloat(seg.dataset.value) <= value);
+    });
+  }
+
+  // Form submission
+  window.submitReview = function(e) {
+    e.preventDefault();
+    const name   = document.getElementById('r-name').value.trim();
+    const link   = document.getElementById('r-link').value.trim();
+    const text   = document.getElementById('r-text').value.trim();
+
+    if (!name) { document.getElementById('r-name').focus(); return; }
+    if (selectedRating === 0) { starLabel.style.color = '#f87171'; starLabel.textContent = 'Please select a rating'; return; }
+    if (!text) { document.getElementById('r-text').focus(); return; }
+
+    addReviewCard({ name, link, text, rating: selectedRating });
+
+    // Reset
+    document.getElementById('review-form').reset();
+    selectedRating = 0;
+    highlightStars(0);
+    starLabel.textContent = 'Select a rating';
+    starLabel.style.color = '';
+
+    const success = document.getElementById('review-success');
+    success.style.display = 'block';
+    setTimeout(() => success.style.display = 'none', 4000);
+  };
+
+  function addReviewCard({ name, link, text, rating }) {
+    const initials = name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
+    const card = document.createElement('div');
+    card.className = 'review-card';
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.innerHTML = `
+      <div class="review-header">
+        <div class="review-avatar">${initials}</div>
+        <div class="review-meta">
+          <strong>${escHTML(name)}</strong>
+          <span>Verified Client</span>
+        </div>
+        <div class="review-stars-display">${renderStarHTML(rating)}</div>
+      </div>
+      <p class="review-text">"${escHTML(text)}"</p>
+      ${link ? `<a href="${escHTML(link)}" target="_blank" rel="noopener" class="review-project-link"><i class="fas fa-arrow-up-right-from-square"></i> View Project</a>` : ''}
+    `;
+    const grid = document.getElementById('reviews-grid');
+    grid.insertBefore(card, grid.firstChild);
+    // Animate in
+    requestAnimationFrame(() => {
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    });
+  }
+
+  function renderStarHTML(rating) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+      if (rating >= i)        html += '<i class="fas fa-star star-filled"></i>';
+      else if (rating >= i-0.5) html += '<i class="fas fa-star-half-alt star-half"></i>';
+      else                    html += '<i class="far fa-star star-empty"></i>';
+    }
+    return html;
+  }
+
+  function escHTML(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+})();
