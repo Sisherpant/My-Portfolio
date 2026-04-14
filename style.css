@@ -1739,3 +1739,14 @@ section {
 @media (max-width: 600px) {
   .testimonials-grid { grid-template-columns: 1fr; }
 }
+/* ========================
+   PROJECTS VIEW MORE
+======================== */
+.project-hidden {
+  display: none;
+}
+
+.project-viewmore-wrap {
+  text-align: center;
+  margin-top: 3rem;
+}
