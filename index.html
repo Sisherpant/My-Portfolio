@@ -248,7 +248,7 @@ Built using HTML, CSS, and JavaScript, the website includes service sections, pr
             <a href="https://my-maker.vercel.app/" target="_blank" class="project-ext-link">Visit Project <i class="fas fa-arrow-right"></i></a>
           </div>
         </div>
-        <div class="project-card reveal-up delay-2">
+        <div class="project-card project-hidden reveal-up delay-2">
           <div class="project-img-wrap">
             <img src="images/project2.jpg" alt="Luxe Clothing" loading="lazy"/>
             <div class="project-overlay">
@@ -265,7 +265,7 @@ Built using HTML, CSS, and JavaScript, the website features product listings, in
           </div>
         </div>
 
-        <div class="project-card reveal-up delay-3">
+        <div class="project-card project-hidden reveal-up delay-3">
           <div class="project-img-wrap">
             <img src="images/project3.jpg" alt="IronFit Gym" loading="lazy"/>
             <div class="project-overlay">
@@ -282,7 +282,7 @@ Built using HTML, CSS, and JavaScript, the website features a dynamic layout wit
           </div>
         </div>
 
-        <div class="project-card reveal-up delay-4">
+        <div class="project-card project-hidden reveal-up delay-4">
           <div class="project-img-wrap">
             <img src="images/project4.jpg" alt="Himalayan Flavors" loading="lazy"/>
             <div class="project-overlay">
@@ -301,6 +301,12 @@ This project reflects real-world frontend development skills with attention to d
           </div>
         </div>
 
+      </div>
+      <!-- View More Button -->
+      <div class="project-viewmore-wrap" id="project-viewmore-wrap">
+        <button class="btn-ghost" id="project-viewmore-btn" onclick="toggleProjects()">
+          <span>View More</span> <i class="fas fa-chevron-down"></i>
+        </button>
       </div>
     </div>
   </section>
