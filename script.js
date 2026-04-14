@@ -500,3 +500,34 @@ function toggleTestimonials() {
     document.getElementById('testimonials').scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
+// ========================
+// PROJECTS VIEW MORE / LESS
+// ========================
+let projectsVisible = 2;
+
+function toggleProjects() {
+  const allCards = document.querySelectorAll('.project-card');
+  const btn = document.getElementById('project-viewmore-btn');
+  const total = allCards.length;
+
+  if (projectsVisible >= total) {
+    // View Less — collapse back to 2
+    allCards.forEach((card, i) => {
+      if (i >= 2) card.classList.add('project-hidden');
+    });
+    projectsVisible = 2;
+    btn.innerHTML = '<span>View More</span> <i class="fas fa-chevron-down"></i>';
+    document.getElementById('projects').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    // Show next 2
+    const next = Math.min(projectsVisible + 2, total);
+    for (let i = projectsVisible; i < next; i++) {
+      allCards[i].classList.remove('project-hidden');
+      revealObserver.observe(allCards[i]);
+    }
+    projectsVisible = next;
+    if (projectsVisible >= total) {
+      btn.innerHTML = '<span>View Less</span> <i class="fas fa-chevron-up"></i>';
+    }
+  }
+}
