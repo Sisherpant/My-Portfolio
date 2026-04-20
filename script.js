@@ -8,21 +8,56 @@
 // ========================
 // LOADER
 // ========================
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.classList.add('hidden');
-      // Trigger hero animations after loader hides
-      document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-          setTimeout(() => el.classList.add('revealed'), 100);
-        }
-      });
-    }
-  }, 2600);
-});
+
+(function initLoader() {
+  // Morse-style pattern: short/long mix
+  const pattern = ['s','s','s','l','s','l','s','s','l','s'];
+  const container = document.getElementById('loader-signal');
+  if (!container) return;
+
+  let delay = 0;
+  pattern.forEach((type, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'loader-sig-dot ' + (type === 'l' ? 'long' : 'short');
+    // last dot gets glow class
+    if (i === pattern.length - 1) dot.classList.add('glow');
+    dot.style.animationDelay = delay + 's';
+    container.appendChild(dot);
+    delay += type === 'l' ? 0.18 : 0.12;
+  });
+
+  // Set name + role + bar animation delays after signal finishes
+  const nameDelay = delay + 0.1;
+  const fname = document.querySelector('.loader-fname');
+  const lname = document.querySelector('.loader-lname');
+  const role  = document.querySelector('.loader-role');
+  const bar   = document.querySelector('.loader-bar-wrap');
+  const fill  = document.querySelector('.loader-bar-fill');
+
+  if (fname) fname.style.animationDelay = nameDelay + 's';
+  if (lname) lname.style.animationDelay = (nameDelay + 0.12) + 's';
+  if (role)  role.style.animationDelay  = (nameDelay + 0.35) + 's';
+  if (bar)   bar.style.animationDelay   = (nameDelay + 0.5) + 's';
+  if (fill)  fill.style.animationDelay  = (nameDelay + 0.5) + 's';
+
+  // Hide loader after everything finishes
+  const totalTime = (nameDelay + 0.5 + 2.2) * 1000;
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.classList.add('hidden');
+        document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right').forEach(el => {
+          const rect = el.getBoundingClientRect();
+          if (rect.top < window.innerHeight) {
+            setTimeout(() => el.classList.add('revealed'), 100);
+          }
+        });
+      }
+    }, Math.max(totalTime, 2800));
+  });
+})();
 
 // ========================
 // CUSTOM CURSOR
