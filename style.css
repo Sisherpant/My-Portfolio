@@ -459,7 +459,7 @@ section {
 .mobile-menu {
   display: none;
   flex-direction: column;
-  background: rgba(8,11,16,0.95);
+  background: rgba(11,10,7,0.97);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-top: 1px solid var(--border);
