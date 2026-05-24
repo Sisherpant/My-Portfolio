@@ -23,8 +23,8 @@
   --shadow: 0 4px 30px rgba(0,0,0,0.4);
   --shadow-accent: 0 0 40px rgba(79,158,255,0.2);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
+--font-display: 'Bricolage Grotesque', sans-serif;
+--font-body: 'Inter', sans-serif;
 }
 
 [data-theme="light"] {
