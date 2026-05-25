@@ -6,6 +6,14 @@
 'use strict';
 
 // ========================
+// SCROLL PROGRESS BAR
+// ========================
+window.addEventListener('scroll', () => {
+  const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+  document.getElementById('scroll-progress').style.width = scrolled + '%';
+});
+
+// ========================
 // LOADER
 // ========================
 
@@ -483,7 +491,7 @@ document.querySelectorAll('img').forEach(img => {
       const parent = this.parentElement;
       if (parent) {
         const placeholder = document.createElement('div');
-        placeholder.style.cssText = 'width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1a1f2e,#0d1117);display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-size:5rem;font-weight:800;color:rgba(79,158,255,0.3);';
+        placeholder.style.cssText = 'width:100%;aspect-ratio:3/4;background:linear-gradient(135deg,#1a1f2e,#0d1117);display:flex;align-items:center;justify-content:center;font-family:Syne,sans-serif;font-size:3rem;color:rgba(79,158,255,0.3);font-weight:800;';
         placeholder.textContent = 'SP';
         parent.insertBefore(placeholder, this);
       }
