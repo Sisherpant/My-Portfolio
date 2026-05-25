@@ -673,56 +673,6 @@ section {
 .delay-5 { transition-delay: 0.5s; }
 
 /* ========================
-   STATS
-======================== */
-#stats {
-  padding: 60px 0;
-  background: var(--bg-2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2px;
-}
-
-.stat-card {
-  padding: 2.5rem 2rem;
-  text-align: center;
-  border-right: 1px solid var(--border);
-  transition: var(--transition);
-}
-
-.stat-card:last-child { border-right: none; }
-
-.stat-card:hover { background: var(--surface); }
-
-.stat-number {
-  font-family: var(--font-display);
-  font-size: 3.5rem;
-  font-weight: 800;
-  color: var(--accent);
-  line-height: 1;
-}
-
-.stat-suffix {
-  font-family: var(--font-display);
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--accent);
-}
-
-.stat-card p {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-  margin-top: 0.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ========================
    SECTION HEADERS
 ======================== */
 .section-header {
@@ -730,26 +680,12 @@ section {
   margin-bottom: 4rem;
 }
 
-.section-eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.75rem;
-  background: var(--accent-glow);
-  padding: 0.3rem 0.9rem;
-  border-radius: 50px;
-  border: 1px solid rgba(79,158,255,0.2);
-}
-
 .section-title {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
   margin-bottom: 1rem;
 }
 
@@ -906,7 +842,7 @@ section {
 }
 
 .skill-card {
-  background: var(--surface);
+  background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 1.75rem 1.5rem;
@@ -929,7 +865,7 @@ section {
 
 .skill-card:hover {
   border-color: var(--border-hover);
-  background: var(--surface-hover);
+  background: var(--surface);
   transform: translateY(-5px);
   box-shadow: var(--shadow);
 }
@@ -954,22 +890,6 @@ section {
   color: var(--text-muted);
   margin-bottom: 1.25rem;
   line-height: 1.5;
-}
-
-.skill-bar {
-  width: 100%;
-  height: 4px;
-  background: var(--surface);
-  border-radius: 2px;
-  overflow: hidden;
-}
-
-.skill-fill {
-  height: 100%;
-  width: 0;
-  background: var(--accent);
-  border-radius: 2px;
-  transition: width 0.8s cubic-bezier(0.4,0,0.2,1);
 }
 
 /* ========================
